@@ -1,0 +1,29 @@
+{
+  "name": "transui",
+  "version": "1.0.0",
+  "description": "Merupakan sebuah aplikasi untuk memberikan informasi dan pelayanan terkait moda transportasi di dalam dan ke Universitas Indonesia. Proyek ini ditujukan untuk menuntaskan proyek akhir praktikum mata kuliah Sistem Basis Data semester genap tahun ajaran 2022-2023",
+  "main": "DBscript.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rezkimd/TransUI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rezkimd/TransUI/issues"
+  },
+  "homepage": "https://github.com/rezkimd/TransUI#readme",
+  "dependencies": {
+    "alert": "^5.1.4",
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jquery": "^3.7.0",
+    "nodemon": "^2.0.22",
+    "pg": "^8.11.0"
+  }
+}

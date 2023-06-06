@@ -1,0 +1,52 @@
+CREATE TYPE ROLE AS ENUM('PENGGUNA','PARTNER','REGULER');
+CREATE TYPE STATUS AS ENUM('Diproses','Selesai','Batal','Belum Bayar');
+CREATE TYPE avail AS ENUM('Used','Available','Charging','Need Services');
+CREATE TYPE facility AS ENUM('Charge Point','Park','Bus Stop');
+
+
+CREATE TABLE user(
+    USER_ID PRIMARY KEY SERIAL,
+    Password TEXT NOT NULL,
+    Email TEXT NOT NULL UNIQUE,
+    NAME VARCHAR(20) NOT NULL UNIQUE,
+    PARTNER_ID CHAR(10) UNIQUE,
+    NPM CHAR(10) UNIQUE,
+    ADDRESS TEXT,
+    ROLE ROLE NOT NULL
+);
+
+CREATE TABLE wallet(
+    WALLET_ID PRIMARY KEY,
+    BALANCE BIG INT NOT NULL
+);
+
+CREATE TABLE partner(
+    PARTNER_ID PRIMARY KEY,
+    LICENSE CHAR(12) NOT NULL
+);
+
+CREATE TABLE history(
+    TRANS_ID PRIMARY KEY,
+    PAYMENT BIGINT,
+    STATUS STATUS NOT NULL,
+    DATE DATE NOT NULL DEFAULT NOW(),
+    TIME TIME NOT NULL DEFAULT NOW(),
+    ORDER_ID CHAR(16) UNIQUE
+);
+
+CREATE TABLE spekun(
+    Spekun_ID PRIMARY KEY,
+    User VARCHAR(20),
+    Drop_loc VARCHAR(20),
+    Fuel INT NOT NULL,
+    Status avail NOT NULL
+);
+
+CREATE TABLE drop_point(
+    Location VARCHAR(20) NOT NULL,
+    Fasilitas facility
+);
+
+CREATE TABLE Sched(
+
+);
