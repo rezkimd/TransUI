@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+</head>
+
+<body>
+    <h1>Login</h1>
+
+    <form id="login-form" action="/api/login" method="POST">
+        <div>
+            <label for="login-identifier">Username:</label>
+            <input type="text" id="login-identifier" name="identifier"
+                placeholder="email, nomor HP, atau username" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+        </div>
+        <div>
+            <button type="submit">Login</button>
+        </div>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#login-form').submit(function (event) {
+                event.preventDefault(); // Mencegah pengiriman form secara langsung
+
+                // Mendapatkan data dari form
+                var formData = $(this).serialize();
+
+                // Mengirim data ke DBscript.js
+                $.ajax({
+                    url: '/api/login',
+                    type: 'POST',
+                    data: formData,
+                    success: function (response) {
+                        // Menghandle respons dari DBscript.js
+                        console.log(response);
+                        // Tambahkan logika atau tampilan yang sesuai dengan respons
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error:', error);
+                        // Tambahkan logika atau tampilan untuk penanganan kesalahan
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

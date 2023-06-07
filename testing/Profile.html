@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register</title>
+</head>
+
+<body>
+    <h1>User Profile</h1>
+
+    <form id="profile-form" action="/api/profile" method="POST">
+        <div>
+            <label for="name">Nama:</label>
+            <input type="text" id="name" placeholder="Masukkan nama lengkap" required>
+        </div>
+        <div>
+            <label for="role">Role:</label>
+            <select id="role" name="role" required>
+                <option value="reguler">Reguler</option>
+                <option value="partner">Partner</option>
+                <option value="mahasiswa">Mahasiswa</option>
+            </select>
+        </div>
+        <div id="partner-fields" style="display: none;">
+            <label for="partnerID">Partner ID:</label>
+            <input type="text" id="partnerID" name="partnerID" placeholder="Masukkan partner ID">
+            <br>
+            <label for="vehicleLicense">Nomor Kendaraan:</label>
+            <input type="text" id="vehicleLicense" name="vehicleLicense" placeholder="Masukkan nomor kendaraan">
+        </div>
+        <div id="mahasiswa-fields" style="display: none;">
+            <label for="npm">NPM:</label>
+            <input type="text" id="npm" name="npm" placeholder="Masukkan NPM">
+        </div>
+        <div>
+            <label for="alamat">Alamat:</label>
+            <input type="text" id="alamat" name="alamat" placeholder="Masukkan alamat" required>
+        </div>
+        <div>
+            <label for="phoneNumber">Nomor HP:</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Masukkan nomor HP" required>
+        </div>
+        <div>
+            <button type="submit" id="register-btn">Register</button>
+        </div>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#role').change(function () {
+                var selectedRole = $(this).val();
+                if (selectedRole === 'partner') {
+                    $('#partner-fields').show();
+                    $('#mahasiswa-fields').hide();
+                } else if (selectedRole === 'mahasiswa') {
+                    $('#partner-fields').hide();
+                    $('#mahasiswa-fields').show();
+                } else {
+                    $('#partner-fields').hide();
+                    $('#mahasiswa-fields').hide();
+                }
+            });
+            $('#profile-form').submit(function (event) {
+                event.preventDefault(); // Mencegah pengiriman form secara langsung
+
+                // Mendapatkan data dari form
+                var formData = $(this).serialize();
+
+                // Mengirim data ke DBscript.js
+                $.ajax({
+                    url: '/api/profile',
+                    type: 'POST',
+                    data: formData,
+                    success: function (response) {
+                        // Menghandle respons dari DBscript.js
+                        console.log(response);
+                        // Tambahkan logika atau tampilan yang sesuai dengan respons
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error:', error);
+                        // Tambahkan logika atau tampilan untuk penanganan kesalahan
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

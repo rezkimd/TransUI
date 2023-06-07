@@ -30,7 +30,7 @@ app.use(session({
 // Rute untuk registrasi pengguna
 app.post('/api/register', async (req, res) => {
     try {
-        const { username, password, email, role, partnerId, vehicleLicense, npm, address, phoneNumber } = req.body;
+        const { username, password, email } = req.body;
 
         // Cek apakah username sudah digunakan sebelumnya
         const usernameExists = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
@@ -47,26 +47,11 @@ app.post('/api/register', async (req, res) => {
         // Enkripsi password
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        let result;
+        // Generate User ID
+        const userID = await generateUserID(pool);
 
-        if (role === 'partner') {
-            // Buat Partner ID secara serial dari angka 1
-            const partnerIdResult = await pool.query('SELECT MAX(partner_id) FROM partners');
-            const maxPartnerId = partnerIdResult.rows[0].max || 0;
-            const newPartnerId = String(Number(maxPartnerId) + 1).padStart(6, '0');
-
-            // Simpan data partner ke tabel partners
-            await pool.query('INSERT INTO partners (partner_id, vehicle_license) VALUES ($1, $2)', [newPartnerId, vehicleLicense]);
-
-            // Simpan data pengguna ke tabel users
-            result = await pool.query('INSERT INTO users (username, password, email, role, partner_id, address, phone_number) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *', [username, hashedPassword, email, role, newPartnerId, address, phoneNumber]);
-        } else if (role === 'mahasiswa') {
-            // Simpan data pengguna ke tabel users
-            result = await pool.query('INSERT INTO users (username, password, email, role, npm, address, phone_number) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *', [username, hashedPassword, email, role, npm, address, phoneNumber]);
-        } else {
-            // Simpan data pengguna ke tabel users
-            result = await pool.query('INSERT INTO users (username, password, email, role, address, phone_number) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', [username, hashedPassword, email, role, address, phoneNumber]);
-        }
+        // Simpan data pengguna ke tabel users
+        const result = await pool.query('INSERT INTO users (user_id, username, password, email) VALUES ($1, $2, $3, $4) RETURNING *', [userID, username, hashedPassword, email]);
 
         // Mengirimkan respons berhasil
         res.status(201).json({ message: 'Registrasi berhasil', user: result.rows[0] });
@@ -106,6 +91,29 @@ app.post('/api/login', async (req, res) => {
         res.status(500).json({ message: 'Terjadi kesalahan saat melakukan login' });
     }
 });
+
+//Rute untuk menambahkan data profile
+app.post('/api/profile', async (req, res) => {
+    try {
+        const { name, role, partnerID, vehicleLicense, npm, alamat, phoneNumber } = req.body;
+
+        // Lakukan validasi data jika diperlukan
+
+        // Simpan data ke dalam database
+        const result = await pool.query(
+            'INSERT INTO users (name, role, partnerID, vehicleLicense, npm, alamat, phoneNumber) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+            [name, role, partnerID, vehicleLicense, npm, alamat, phoneNumber]
+        );
+        const savedData = result.rows[0];
+
+        // Mengirimkan respons berhasil
+        res.json({ message: 'Data berhasil disimpan', data: savedData });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ message: 'Terjadi kesalahan saat menyimpan data' });
+    }
+});
+
 
 
 // Memulai server
