@@ -1,132 +1,194 @@
 <!DOCTYPE html>
 <html lang="english">
-  <head>
-    <title>TransUI</title>
-    <meta property="og:title" content="TopUp - exported project" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8" />
-    <meta property="twitter:card" content="summary_large_image" />
 
-    <style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
-    </style>
-    <style data-tag="default-style-sheet">
-      html {
-        font-family: Inter;
-        font-size: 16px;
-      }
+<head>
+  <title>TransUI</title>
+  <meta property="og:title" content="TopUp - exported project" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta property="twitter:card" content="summary_large_image" />
 
-      body {
-        font-weight: 400;
-        font-style:normal;
-        text-decoration: none;
-        text-transform: none;
-        letter-spacing: normal;
-        line-height: 1.15;
-        color: var(--dl-color-gray-black);
-        background-color: var(--dl-color-gray-white);
+  <style data-tag="reset-style-sheet">
+    html {
+      line-height: 1.15;
+    }
 
-      }
-    </style>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
-    <div>
-      <link href="./css/top-up.css" rel="stylesheet" />
+    body {
+      margin: 0;
+    }
 
-      <div class="top-up-container">
-        <div class="top-up-i-phone-plus7">
-          <div class="top-up-group7">
-            <span class="top-up-text"><span>TransUI</span></span>
-            <img
-              src="public/external/vector1192-zq.svg"
-              alt="Vector1192"
-              class="top-up-vector"
-            />
+    * {
+      box-sizing: border-box;
+      border-width: 0;
+      border-style: solid;
+    }
+
+    p,
+    li,
+    ul,
+    pre,
+    div,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    figure,
+    blockquote,
+    figcaption {
+      margin: 0;
+      padding: 0;
+    }
+
+    button {
+      background-color: transparent;
+    }
+
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+      font-family: inherit;
+      font-size: 100%;
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    button,
+    select {
+      text-transform: none;
+    }
+
+    button,
+    [type="button"],
+    [type="reset"],
+    [type="submit"] {
+      -webkit-appearance: button;
+    }
+
+    button::-moz-focus-inner,
+    [type="button"]::-moz-focus-inner,
+    [type="reset"]::-moz-focus-inner,
+    [type="submit"]::-moz-focus-inner {
+      border-style: none;
+      padding: 0;
+    }
+
+    button:-moz-focus,
+    [type="button"]:-moz-focus,
+    [type="reset"]:-moz-focus,
+    [type="submit"]:-moz-focus {
+      outline: 1px dotted ButtonText;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
+
+    input {
+      padding: 2px 4px;
+    }
+
+    img {
+      display: block;
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+  </style>
+  <style data-tag="default-style-sheet">
+    html {
+      font-family: Inter;
+      font-size: 16px;
+    }
+
+    body {
+      font-weight: 400;
+      font-style: normal;
+      text-decoration: none;
+      text-transform: none;
+      letter-spacing: normal;
+      line-height: 1.15;
+      color: var(--dl-color-gray-black);
+      background-color: var(--dl-color-gray-white);
+
+    }
+  </style>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+    data-tag="font" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+    data-tag="font" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+    data-tag="font" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <div>
+    <link href="./css/top-up.css" rel="stylesheet" />
+
+    <div class="top-up-container">
+      <div class="top-up-i-phone-plus7">
+        <div class="top-up-group7">
+          <span class="top-up-text"><span>TransUI</span></span>
+          <img src="public/external/vector1192-zq.svg" alt="Vector1192" class="top-up-vector" />
+        </div>
+        <img src="public/external/vector1192-z9vc.svg" alt="Vector1192" class="top-up-vector1"
+          onclick="window.location.href = '/profile'" />
+        <img src="public/external/rectangle221192-78qb-500h.png" alt="Rectangle221192" class="top-up-rectangle22" />
+        <span class="top-up-text02"><span>Top Up Amount</span></span>
+
+        <div class="top-up-text04">
+          <!--span>Rp0</span-->
+          <div id="display"></div>
+        </div>
+
+
+        <div class="top-up-group83">
+          <div class="top-up-group75">
+            <button class="top-up-text06 btn" id="1">1</button>
           </div>
-          <img
-            src="public/external/vector1192-z9vc.svg"
-            alt="Vector1192"
-            class="top-up-vector1"
-            onclick="window.location.href = 'profile.html'"
-          />
-          <img
-            src="public/external/rectangle221192-78qb-500h.png"
-            alt="Rectangle221192"
-            class="top-up-rectangle22"
-          />
-          <span class="top-up-text02"><span>Top Up Amount</span></span>
-          
-            <div class="top-up-text04">
-              <!--span>Rp0</span-->
-              <div id="display" ></div>
+          <div class="top-up-group76">
+            <button class="top-up-text07 btn" id="2">2</button>
+          </div>
+          <div class="top-up-group77">
+            <button class="top-up-text08 btn" id="3">3</button>
+          </div>
+        </div>
+        <div class="top-up-group86"><button class="top-up-text09 btn" id="4">4</button></div>
+        <div class="top-up-group87"><button class="top-up-text10 btn" id="5">5</button></div>
+        <div class="top-up-group88"><button class="top-up-text11 btn" id="6">6</button></div>
+        <div class="top-up-group89"><button class="top-up-text12 btn" id="7">7</button></div>
+        <div class="top-up-group90"><button class="top-up-text13 btn" id="8">8</button></div>
+        <div class="top-up-group80"><button class="top-up-text14 btn" id="9">9</button></div>
+        <div class="top-up-group78"><button class="top-up-text15 btn" id="0">0</button></div>
+        <div class="top-up-group79">
+          <button class="top-up-text16 btn" id="000">000</button>
+        </div>
+        <div class="top-up-group84" onclick="window.location.href='/profile'">
+          <span class="top-up-text18"><span>Confirm</span></span>
+        </div>
+        <div class="top-up-group85">
+          <button class="top-up-group801 btn" id="backspace">
+            <div class="top-up-group">
+              <img src="public/external/vector1193-cgs.svg" alt="Vector1193" class="top-up-vector2" />
+              <img src="public/external/vector1193-q36d.svg" alt="Vector1193" class="top-up-vector3" />
+              <img src="public/external/vector1193-8yyh.svg" alt="Vector1193" class="top-up-vector4" />
             </div>
-          
-          
-          <div class="top-up-group83">
-            <div class="top-up-group75">
-              <button class="top-up-text06 btn" id="1">1</button>
-            </div>
-            <div class="top-up-group76">
-              <button class="top-up-text07 btn" id="2">2</button>
-            </div>
-            <div class="top-up-group77">
-              <button class="top-up-text08 btn" id="3">3</button>
-            </div>
-          </div>
-          <div class="top-up-group86"><button class="top-up-text09 btn" id="4">4</button></div>
-          <div class="top-up-group87"><button class="top-up-text10 btn" id="5">5</button></div>
-          <div class="top-up-group88"><button class="top-up-text11 btn" id="6">6</button></div>
-          <div class="top-up-group89"><button class="top-up-text12 btn" id="7">7</button></div>
-          <div class="top-up-group90"><button class="top-up-text13 btn" id="8">8</button></div>
-          <div class="top-up-group80"><button class="top-up-text14 btn" id="9">9</button></div>
-          <div class="top-up-group78"><button class="top-up-text15 btn" id="0">0</button></div>
-          <div class="top-up-group79">
-            <button class="top-up-text16 btn" id="000">000</button>
-          </div>
-          <div class="top-up-group84" onclick="window.location.href='profile.html'">
-            <span class="top-up-text18"><span>Confirm</span></span>
-          </div>
-          <div class="top-up-group85">
-            <button class="top-up-group801 btn" id="backspace">
-              <div class="top-up-group">
-                <img
-                  src="public/external/vector1193-cgs.svg"
-                  alt="Vector1193"
-                  class="top-up-vector2"
-                />
-                <img
-                  src="public/external/vector1193-q36d.svg"
-                  alt="Vector1193"
-                  class="top-up-vector3"
-                />
-                <img
-                  src="public/external/vector1193-8yyh.svg"
-                  alt="Vector1193"
-                  class="top-up-vector4"
-                />
-              </div>
-            </button>
-            
-          </div>
+          </button>
+
         </div>
       </div>
     </div>
-    <script src="top-up.js"></script>
-  </body>
+  </div>
+  <script src="top-up.js"></script>
+</body>
+
 </html>

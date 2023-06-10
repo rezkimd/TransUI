@@ -6,6 +6,7 @@ const { Pool } = require('pg');
 const path = require('path')
 
 const app = express();
+const router = require('./Bridge');
 const port = 3000;
 
 app.use('/css', express.static(path.join(__dirname, '../css')));
@@ -32,6 +33,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
 }));
+
+app.use('/', router);
 
 // Rute untuk registrasi pengguna
 app.post('/api/register', async (req, res) => {
@@ -170,42 +173,11 @@ app.post('/api/bikes', async (req, res) => {
 });
 
 
-//Router 1: Menampilkan landing page (login/register)
-app.get('/', (req, res) => {
-    temp = req.session;
-    if (temp.username && temp.visits) { //jika user_table terdaftar maka akan masuk ke halaman admin
-        return res.redirect('../index.html');
-    } else { //login / register page
-        temp.visits = 1;
-        res.sendFile(path.join(__dirname, '../index.html'));
-    }
-});
 
-app.get('/', (req, res) => {
-    temp = req.session;
-    if (temp.username && temp.visits) { //jika user_table terdaftar maka akan masuk ke halaman admin
-        return res.redirect('../index.html');
-    } else { //login / register page
-        temp.visits = 1;
-        res.sendFile(path.join(__dirname, '../index.html'));
-    }
-});
-
-// Konfigurasi routing untuk URI /login
-app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, '../login.html'));
-});
-
-// Konfigurasi routing untuk URI /register
-app.get('/register', (req, res) => {
-    res.sendFile(path.join(__dirname, '../register.html'));
-});
-
-app.get('/home', (req, res) => {
-    res.sendFile(path.join(__dirname, '../home.html'));
-});
 
 // Memulai server
 app.listen(port, () => {
     console.log(`Server berjalan di http://localhost:${port}`);
 });
+
+module.exports = app

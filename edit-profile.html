@@ -1,93 +1,168 @@
 <!DOCTYPE html>
 <html lang="english">
-  <head>
-    <title>TransUI</title>
-    <meta property="og:title" content="editProfile - exported project" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8" />
-    <meta property="twitter:card" content="summary_large_image" />
 
-    <style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
-    </style>
-    <style data-tag="default-style-sheet">
-      html {
-        font-family: Inter;
-        font-size: 16px;
-      }
+<head>
+  <title>TransUI</title>
+  <meta property="og:title" content="editProfile - exported project" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta property="twitter:card" content="summary_large_image" />
 
-      body {
-        font-weight: 400;
-        font-style:normal;
-        text-decoration: none;
-        text-transform: none;
-        letter-spacing: normal;
-        line-height: 1.15;
-        color: var(--dl-color-gray-black);
-        background-color: var(--dl-color-gray-white);
+  <style data-tag="reset-style-sheet">
+    html {
+      line-height: 1.15;
+    }
 
-      }
-    </style>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
-    <div>
-      <link href="./css/edit-profile.css" rel="stylesheet" />
+    body {
+      margin: 0;
+    }
 
-      <div class="edit-profile-container">
-        <div class="edit-profile-i-phone-plus5">
-          <div class="edit-profile-group8">
-            <span class="edit-profile-text"><span>TransUI</span></span>
-            <img
-              src="public/external/vector9733-alyc.svg"
-              alt="Vector9733"
-              class="edit-profile-vector"
-            />
-          </div>
-          <div class="edit-profile-nav">
-            <img
-              src="public/external/ellipse1209736-j04-200h.png"
-              alt="Ellipse1209736"
-              class="edit-profile-ellipse120"
-            />
-          </div>
-          <img
-            src="public/external/arrowleft9732-73ii.svg"
-            alt="ArrowLeft9732"
-            class="edit-profile-arrow-left"
-            onclick="window.location.href='profile.html'"
-          />
-            <input type="text" id="name" name="name" placeholder="Name" class="edit-profile-sec">      
-            <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" class="edit-profile-sec1">
-          <!--div class="edit-profile-sec2"-->
-            <input type="email" id="email" name="email" value="Email" class="edit-profile-sec2" readonly>
-          <!--/div-->
-            <input type="text" id="alamat" name="alamat" placeholder="Alamat" class="edit-profile-sec3ori">
-          <div id="mahasiswa-fields" style="display: none;" >
-            <input type="text" id="npm" name="npm" placeholder="Masukkan NPM" class="edit-profile-sec3">
-          </div>
-          <div id="partner-fields" style="display: none;" >
-            <input type="text" id="partnerID" name="partnerID" placeholder="Masukkan partner ID" class="edit-profile-sec3">
-            <br>
-            <input type="text" id="vehicleLicense" name="vehicleLicense" placeholder="Masukkan nomor kendaraan" class="edit-profile-sec3kw">
+    * {
+      box-sizing: border-box;
+      border-width: 0;
+      border-style: solid;
+    }
+
+    p,
+    li,
+    ul,
+    pre,
+    div,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    figure,
+    blockquote,
+    figcaption {
+      margin: 0;
+      padding: 0;
+    }
+
+    button {
+      background-color: transparent;
+    }
+
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+      font-family: inherit;
+      font-size: 100%;
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    button,
+    select {
+      text-transform: none;
+    }
+
+    button,
+    [type="button"],
+    [type="reset"],
+    [type="submit"] {
+      -webkit-appearance: button;
+    }
+
+    button::-moz-focus-inner,
+    [type="button"]::-moz-focus-inner,
+    [type="reset"]::-moz-focus-inner,
+    [type="submit"]::-moz-focus-inner {
+      border-style: none;
+      padding: 0;
+    }
+
+    button:-moz-focus,
+    [type="button"]:-moz-focus,
+    [type="reset"]:-moz-focus,
+    [type="submit"]:-moz-focus {
+      outline: 1px dotted ButtonText;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
+
+    input {
+      padding: 2px 4px;
+    }
+
+    img {
+      display: block;
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+  </style>
+  <style data-tag="default-style-sheet">
+    html {
+      font-family: Inter;
+      font-size: 16px;
+    }
+
+    body {
+      font-weight: 400;
+      font-style: normal;
+      text-decoration: none;
+      text-transform: none;
+      letter-spacing: normal;
+      line-height: 1.15;
+      color: var(--dl-color-gray-black);
+      background-color: var(--dl-color-gray-white);
+
+    }
+  </style>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+    data-tag="font" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+    data-tag="font" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+    data-tag="font" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <div>
+    <link href="./css/edit-profile.css" rel="stylesheet" />
+
+    <div class="edit-profile-container">
+      <div class="edit-profile-i-phone-plus5">
+        <div class="edit-profile-group8">
+          <span class="edit-profile-text"><span>TransUI</span></span>
+          <img src="public/external/vector9733-alyc.svg" alt="Vector9733" class="edit-profile-vector" />
         </div>
-          <!--div class="edit-profile-sec4"-->
-            <!--span class="edit-profile-text10"><span>Student</span></span>
+        <div class="edit-profile-nav">
+          <img src="public/external/ellipse1209736-j04-200h.png" alt="Ellipse1209736" class="edit-profile-ellipse120" />
+        </div>
+        <img src="public/external/arrowleft9732-73ii.svg" alt="ArrowLeft9732" class="edit-profile-arrow-left"
+          onclick="window.location.href='/profile'" />
+        <input type="text" id="name" name="name" placeholder="Name" class="edit-profile-sec">
+        <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" class="edit-profile-sec1">
+        <!--div class="edit-profile-sec2"-->
+        <input type="email" id="email" name="email" value="Email" class="edit-profile-sec2" readonly>
+        <!--/div-->
+        <input type="text" id="alamat" name="alamat" placeholder="Alamat" class="edit-profile-sec3ori">
+        <div id="mahasiswa-fields" style="display: none;">
+          <input type="text" id="npm" name="npm" placeholder="Masukkan NPM" class="edit-profile-sec3">
+        </div>
+        <div id="partner-fields" style="display: none;">
+          <input type="text" id="partnerID" name="partnerID" placeholder="Masukkan partner ID"
+            class="edit-profile-sec3">
+          <br>
+          <input type="text" id="vehicleLicense" name="vehicleLicense" placeholder="Masukkan nomor kendaraan"
+            class="edit-profile-sec3kw">
+        </div>
+        <!--div class="edit-profile-sec4"-->
+        <!--span class="edit-profile-text10"><span>Student</span></span>
             <div class="edit-profile-agora">
               <div class="edit-profile-group1">
                 <img
@@ -97,37 +172,37 @@
                 />
               </div>
             </div-->
-            <select id="role" name="role" class="edit-profile-sec4" required>
-                <option value="">Pilih role</option>
-                <option value="partner">Partner</option>
-                <option value="mahasiswa">Mahasiswa</option>
-                <option value="reguler">Reguler</option>
-            </select>
-          <!--/div-->
-          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-          <script>
-              $(document).ready(function () {
-                  $('#role').change(function () {
-                      var selectedRole = $(this).val();
-                      if (selectedRole === 'partner') {
-                          $('#partner-fields').show();
-                          $('#mahasiswa-fields').hide();
-                      } else if (selectedRole === 'mahasiswa') {
-                          $('#partner-fields').hide();
-                          $('#mahasiswa-fields').show();
-                      } else {
-                          $('#partner-fields').hide();
-                          $('#mahasiswa-fields').hide();
-                      }
-                  });
-              });
-          </script>
-          <div class="edit-profile-group91"
-          onclick="window.location.href='profile.html'" >
-            <span class="edit-profile-text12"><span>Save Changes</span></span>
-          </div>
+        <select id="role" name="role" class="edit-profile-sec4" required>
+          <option value="">Pilih role</option>
+          <option value="partner">Partner</option>
+          <option value="mahasiswa">Mahasiswa</option>
+          <option value="reguler">Reguler</option>
+        </select>
+        <!--/div-->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+          $(document).ready(function () {
+            $('#role').change(function () {
+              var selectedRole = $(this).val();
+              if (selectedRole === 'partner') {
+                $('#partner-fields').show();
+                $('#mahasiswa-fields').hide();
+              } else if (selectedRole === 'mahasiswa') {
+                $('#partner-fields').hide();
+                $('#mahasiswa-fields').show();
+              } else {
+                $('#partner-fields').hide();
+                $('#mahasiswa-fields').hide();
+              }
+            });
+          });
+        </script>
+        <div class="edit-profile-group91" onclick="window.location.href='/profile'">
+          <span class="edit-profile-text12"><span>Save Changes</span></span>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
