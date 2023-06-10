@@ -8,6 +8,10 @@ const path = require('path')
 const app = express();
 const port = 3000;
 
+app.use('/css', express.static(path.join(__dirname, '../css')));
+app.use(express.static('public'));
+app.use('/public', express.static(path.join(__dirname, '../public')));
+
 // Konfigurasi koneksi database
 const pool = new Pool({
     connectionString: 'postgres://rezkimuhammad60:3tbwJKEXYjo1@ep-empty-recipe-891243-pooler.ap-southeast-1.aws.neon.tech/TransUI',
@@ -178,6 +182,16 @@ app.get('/', (req, res) => {
         temp.visits = 1;
         res.sendFile(path.join(__dirname, '../index.html'));
     }
+});
+
+// Konfigurasi routing untuk URI /login
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, '../login.html'));
+});
+
+// Konfigurasi routing untuk URI /register
+app.get('/register', (req, res) => {
+    res.sendFile(path.join(__dirname, '../register.html'));
 });
 
 // Memulai server
