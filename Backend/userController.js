@@ -1,8 +1,12 @@
 // Fungsi untuk menghitung jumlah pengguna saat ini
 const countUsers = async (pool) => {
-    const result = await pool.query('SELECT COUNT(*) FROM users');
-    const count = result.rows[0].count;
-    return parseInt(count);
+    try {
+        const result = await pool.query('SELECT COUNT(*) FROM user_table');
+        return parseInt(result.rows[0].count);
+    } catch (error) {
+        console.error('Error:', error);
+        throw new Error('Terjadi kesalahan saat menghitung jumlah pengguna');
+    }
 };
 
 // Fungsi untuk membuat User ID berdasarkan jumlah pengguna saat ini

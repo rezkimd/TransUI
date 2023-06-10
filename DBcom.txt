@@ -11,12 +11,12 @@ CREATE TYPE STATUS AS ENUM('Menunggu','Selesai','Dibatalkan');
 CREATE TYPE avail AS ENUM('Used','Available','Charging','Broken');
 CREATE TYPE facility AS ENUM('Charge Point','Park','Bus Stop');
 
-CREATE TABLE "user" (
-    "USER_ID" VARCHAR(10) PRIMARY KEY,
-    "Password" TEXT NOT NULL,
-    "Email" TEXT NOT NULL UNIQUE,
-    "NAME" VARCHAR(20) DEFAULT NULL,
-    "Username" VARCHAR(20) NOT NULL UNIQUE,
+CREATE TABLE "user_table" (
+    "user_id" VARCHAR(10) PRIMARY KEY,
+    "password" TEXT NOT NULL,
+    "email" TEXT NOT NULL UNIQUE,
+    "name" VARCHAR(20) DEFAULT NULL,
+    "username" VARCHAR(20) NOT NULL UNIQUE,
     "PARTNER_ID" CHAR(10) DEFAULT NULL,
     "NPM" CHAR(10) DEFAULT NULL,
     "ADDRESS" TEXT DEFAULT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE "user" (
     "ROLE" VARCHAR(20) NOT NULL
 );
 
-CREATE TABLE "Partner" (
+CREATE TABLE "partner_table" (
     "PARTNER_ID" VARCHAR(10) PRIMARY KEY,
     "Nama" VARCHAR(20) NOT NULL,
     "LICENSE" CHAR(12) NOT NULL
