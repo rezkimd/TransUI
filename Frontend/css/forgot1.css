@@ -1,0 +1,183 @@
+.forgot1-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.forgot1-i-phone-plus12 {
+  width: 415px;
+  height: 736px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: var(--dl-color-default-bg1);
+}
+.forgot1-text {
+  top: 60.02020263671875px;
+  left: 62.61956787109375px;
+  color: var(--dl-color-default-text1);
+  height: auto;
+  position: absolute;
+  font-size: 30.067453384399414px;
+  font-style: ExtraBold;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 800;
+  line-height: 100%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.forgot1-vector {
+  top: 64.38987731933594px;
+  left: 26.5001220703125px;
+  width: 28px;
+  height: 26px;
+  position: absolute;
+}
+.forgot1-sec {
+  gap: 27.532058715820312px;
+  top: 100px;
+  left: 23.45294189453125px;
+  width: 367px;
+  height: 442px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.forgot1-text02 {
+  top: 65.69441986083984px;
+  left: 70.54705810546875px;
+  color: var(--dl-color-neutral-almostblack);
+  height: auto;
+  position: absolute;
+  font-size: 27.532058715820312px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Open Sans;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.forgot1-sec1 {
+  gap: 27.532058715820312px;
+  top: 130.22647094726562px;
+  left: 0px;
+  width: 367px;
+  display: flex;
+  padding: 27.532058715820312px;
+  position: absolute;
+  box-shadow: 0px 4px 27px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 9.177352905273438px;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--dl-color-default-d9d9d9);
+}
+.forgot1-sec2 {
+  gap: 9.177352905273438px;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.forgot1-text04 {
+  color: var(--dl-color-neutral-almostblack);
+  height: auto;
+  font-size: 16.060367584228516px;
+  align-self: stretch;
+  font-style: Regular;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.forgot1-sec3 {
+  display: flex;
+  padding: 9.177352905273438px;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(196, 196, 196, 1);
+  border-style: solid;
+  border-width: 1.1471691131591797px;
+  border-radius: 4.588676452636719px;
+  justify-content: center;
+  background-color: var(--dl-color-ios-bg);
+}
+.forgot1-text06 {
+  color: var(--dl-color-neutral-almostblack);
+  height: auto;
+  flex-grow: 1;
+  font-size: 16.060367584228516px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.forgot1-sec4 {
+  display: flex;
+  padding: 9.177352905273438px;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 9.177352905273438px;
+  justify-content: center;
+  background-color: var(--dl-color-default-primary1);
+}
+.forgot1-sec4:hover{
+  background-color: var(--dl-color-default-primary2);
+  cursor: pointer;
+}
+.createnew{
+  color: var(--dl-color-default-primary1);
+}
+.createnew:hover{
+  cursor: pointer;
+  color: var(--dl-color-default-primary2);
+}
+
+.logo:hover{
+  cursor: pointer;
+}
+.forgot1-text08 {
+  color: var(--dl-color-default-text1);
+  height: auto;
+  font-size: 18.354705810546875px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.forgot1-text10 {
+  color: rgba(17, 17, 17, 1);
+  height: auto;
+  font-size: 16.060367584228516px;
+  align-self: stretch;
+  font-style: Regular;
+  text-align: center;
+  font-family: Open Sans;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.forgot1-text11 {
+  color: var(--dl-color-neutral-almostblack);
+}

@@ -9,11 +9,9 @@ const port = 3000;
 
 // Konfigurasi koneksi database
 const pool = new Pool({
-    //user: 'your_username',
-    //host: 'your_host',
-    //database: 'your_database',
-    //password: 'your_password',
-    port: 5432, // Port default PostgreSQL
+    connectionString: 'postgres://rezkimuhammad60:3tbwJKEXYjo1@ep-empty-recipe-891243-pooler.ap-southeast-1.aws.neon.tech/TransUI',
+    sslmode: "require",
+    ssl: true
 });
 
 // Middleware untuk menguraikan body permintaan

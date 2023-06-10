@@ -1,0 +1,343 @@
+.profile-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  box-shadow: 0px 5px 10px 0px #d4d4d4;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.profile-i-phone-plus4 {
+  width: 419px;
+  height: 736px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: #fafafa;
+}
+.profile-group7 {
+  top: 50px;
+  left: 130px;
+  width: 154.11944580078125px;
+  height: 30px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.profile-text {
+  left: 36.11944580078125px;
+  color: var(--dl-color-default-text1);
+  height: auto;
+  position: absolute;
+  font-size: 30.067453384399414px;
+  font-style: ExtraBold;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 800;
+  line-height: 100%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.profile-vector {
+  top: 4.36968994140625px;
+  left: 0px;
+  width: 28px;
+  height: 26px;
+  position: absolute;
+}
+.profile-vector1 {
+  top: 56px;
+  left: 35px;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+}
+.profile-vector1:hover{
+  cursor: pointer;
+}
+.profile-group {
+  top: 186px;
+  left: 35px;
+  width: 164px;
+  height: 78px;
+  display: flex;
+  position: absolute;
+  box-shadow: 0px 5px 10px 0px #d4d4d4;
+  align-items: flex-start;
+  flex-shrink: 1;
+  border-radius: var(--dl-radius-radius-radius8);
+  background-color: rgba(238, 238, 238, 1);
+}
+.profile-group:hover{
+  cursor: pointer;
+}
+.profile-vector2 {
+  top: 22px;
+  left: 77px;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+}
+
+.trips-button:hover{
+  cursor: pointer;
+}
+
+.topupbtn:hover{
+  cursor: pointer;
+}
+
+.profile-group6 {
+  top: 16px;
+  left: 71px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.profile-ellipse6 {
+  top: 0px;
+  left: 0px;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+}
+.profile-vector3 {
+  top: 6.769238471984863px;
+  left: 7.384614944458008px;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
+.profile-text02 {
+  top: 45px;
+  left: 61px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: Light;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 300;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.profile-rectangle21 {
+  top: 186px;
+  left: 215px;
+  width: 163px;
+  height: 84px;
+  position: absolute;
+  border-radius: 10px;
+}
+.profile-text04 {
+  top: 233px;
+  left: 280px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: Light;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 300;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.profile-svgexport11 {
+  top: 201px;
+  left: 287px;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+}
+.profile-rectangle22 {
+  top: 414px;
+  left: 19px;
+  width: 375px;
+  height: 10px;
+  position: absolute;
+}
+.profile-text06 {
+  top: 439px;
+  left: 66px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: Light;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 300;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.profile-rectangle23 {
+  top: 289px;
+  left: 35px;
+  width: 343px;
+  height: 94px;
+  position: absolute;
+  border-radius: 14px;
+}
+.profile-rectangle23:hover{
+  cursor: pointer;
+}
+.profile-text08 {
+  top: 314px;
+  left: 52px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: Light;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 300;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.profile-text08, .profile-text10, .profile-text06{
+  cursor: pointer;
+}
+
+.profile-text10 {
+  top: 338px;
+  left: 52px;
+  color: rgba(84, 87, 94, 1);
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.profile-nav {
+  top: 111px;
+  left: 35px;
+  width: 274px;
+  height: 60px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.profile-ellipse120 {
+  top: 0px;
+  left: 0px;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+}
+.profile-text12 {
+  top: 6px;
+  left: 73px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Open Sans;
+  font-weight: 400;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.profile-text14 {
+  top: 30px;
+  left: 72px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 15px;
+  font-style: italic;
+  text-align: center;
+  font-family: Open Sans;
+  font-weight: 300;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.profile-logout-fill1wght700grad25opsz242 {
+  top: 442px;
+  left: 35px;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+}
+
+.logoutgroup{
+  cursor: pointer;
+}
+.profile-top-up {
+  top: 314px;
+  left: 307px;
+  width: 45px;
+  height: 50px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.profile-text16 {
+  top: 31px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 14px;
+  font-style: italic;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 300;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.profile-group56 {
+  top: 0px;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+  background-color: rgba(255, 255, 255, 1);
+}
+.profile-vector4 {
+  top: 6px;
+  left: 6px;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+}
+@media(max-width: 991px) {
+  .profile-i-phone-plus4 {
+    width: 417px;
+  }
+}
+@media(max-width: 767px) {
+  .profile-i-phone-plus4 {
+    width: 412px;
+  }
+}
+@media(max-width: 479px) {
+  .profile-i-phone-plus4 {
+    width: 416px;
+  }
+}

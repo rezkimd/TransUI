@@ -1,0 +1,230 @@
+.-phone-plus1-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-bottom: 100px;
+}
+.-phone-plus1-i-phone-plus1 {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 467px;
+  height: 736px;
+  margin: auto;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: var(--dl-color-default-d9d9d9);
+}
+.-phone-plus1-text {
+  top: 60.02020263671875px;
+  left: 84.16162109375px;
+  color: var(--dl-color-default-text1);
+  height: auto;
+  position: absolute;
+  font-size: 48px;
+  font-style: ExtraBold;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 800;
+  line-height: 100%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.-phone-plus1-vector {
+  top: 66.99600219726562px;
+  left: 26.500118255615234px;
+  width: 45px;
+  height: 41px;
+  position: absolute;
+}
+.-phone-plus1-text2 {
+  top: 140.38502502441406px;
+  left: 39px;
+  color: var(--dl-color-default-text1);
+  height: auto;
+  position: absolute;
+  font-size: 14.334665298461914px;
+  font-style: Regular;
+  text-align: right;
+  font-family: Open Sans;
+  font-weight: 400;
+  line-height: 100%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.-phone-plus1-vector-stroke {
+  top: 121.25px;
+  left: 31.350250244140625px;
+  width: 355px;
+  height: 4px;
+  position: absolute;
+}
+.-phone-plus1-bus-stopamico1 {
+  top: 177px;
+  left: 42px;
+  width: 312px;
+  height: 312px;
+  position: absolute;
+}
+.-phone-plus1-rideabicycleamico1 {
+  top: 305px;
+  left: 121px;
+  width: 205px;
+  height: 205px;
+  position: absolute;
+}
+.-phone-plus1-round-buttontruebutton {
+  top: 618px;
+  left: 42px;
+  width: 333px;
+  display: flex;
+  padding: 0 0 6px;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+}
+.-phone-plus1-button {
+  gap: 12px;
+  width: 333px;
+  display: flex;
+  padding: 23px 32px;
+  overflow: hidden;
+  box-shadow: 0px 3px 8px 0px rgba(136, 144, 194, 0.25) ;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 999px;
+  justify-content: center;
+  background-color: var(--dl-color-default-primary1);
+  position: absolute;
+  bottom: 90px;
+  left: 70px;
+}
+.-phone-plus1-text4 {
+  color: var(--dl-color-default-text1);
+  height: auto;
+  font-size: 14px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 400;
+  line-height: 100%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.-phone-plus1-round-buttontruebutton1 {
+  top: 544px;
+  left: 42px;
+  width: 333px;
+  display: flex;
+  padding: 0 0 6px;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+}
+
+.-phone-plus1-button1 {
+  gap: 12px;
+  width: 333px;
+  display: flex;
+  padding: 23px 32px;
+  overflow: hidden;
+  box-shadow: 0px 3px 8px 0px rgba(136, 144, 194, 0.25) ;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 999px;
+  justify-content: center;
+  background-color: var(--dl-color-default-text1);
+  position:absolute;
+  bottom: 20px;
+  left: 70px;
+}
+
+.-phone-plus1-button:hover{
+  background-color: var(--dl-color-default-primary2)
+
+}
+
+.-phone-plus1-button1:hover{
+  background-color: gray;
+
+}
+
+.-phone-plus1-text6 {
+  color: var(--dl-color-default-bg1);
+  height: auto;
+  font-size: 14px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 400;
+  line-height: 100%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.-phone-plus1-button:hover,
+.-phone-plus1-button1:hover {
+  cursor: pointer;
+}
+
+@media(max-width: 991px) {
+  .-phone-plus1-i-phone-plus1 {
+    top: 0px;
+    left: 0px;
+    width: 475px;
+    margin: auto;
+    position: absolute;
+  }
+  .-phone-plus1-bus-stopamico1 {
+    top: 172px;
+    left: 35px;
+  }
+  .-phone-plus1-rideabicycleamico1 {
+    top: 300px;
+    left: 114px;
+  }
+}
+@media(max-width: 767px) {
+  .-phone-plus1-i-phone-plus1 {
+    top: 0px;
+    left: 0px;
+    width: 476px;
+    margin: auto;
+    position: absolute;
+  }
+  .-phone-plus1-bus-stopamico1 {
+    top: 179px;
+    left: 49px;
+  }
+  .-phone-plus1-rideabicycleamico1 {
+    top: 307px;
+    left: 128px;
+  }
+}
+@media(max-width: 479px) {
+  .-phone-plus1-i-phone-plus1 {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 478px;
+    margin: auto;
+    position: absolute;
+  }
+  .-phone-plus1-bus-stopamico1 {
+    left: 0px;
+    right: 0px;
+    margin: auto;
+  }
+  .-phone-plus1-rideabicycleamico1 {
+    left: 0px;
+    right: 0px;
+    margin: auto;
+  }
+}
