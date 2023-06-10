@@ -30,7 +30,7 @@ app.use(session({
 // Rute untuk registrasi pengguna
 app.post('/api/register', async (req, res) => {
     try {
-        const { username, password, email } = req.body;
+        const { username, password, email, role } = req.body;
 
         // Cek apakah username sudah digunakan sebelumnya
         const usernameExists = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
@@ -51,7 +51,7 @@ app.post('/api/register', async (req, res) => {
         const userID = await generateUserID(pool);
 
         // Simpan data pengguna ke tabel users
-        const result = await pool.query('INSERT INTO users (user_id, username, password, email) VALUES ($1, $2, $3, $4) RETURNING *', [userID, username, hashedPassword, email]);
+        const result = await pool.query('INSERT INTO users (user_id, username, password, email, role) VALUES ($1, $2, $3, $4, $5) RETURNING *', [userID, username, hashedPassword, email, role]);
 
         // Mengirimkan respons berhasil
         res.status(201).json({ message: 'Registrasi berhasil', user: result.rows[0] });
@@ -60,6 +60,7 @@ app.post('/api/register', async (req, res) => {
         res.status(500).json({ message: 'Terjadi kesalahan saat melakukan registrasi' });
     }
 });
+
 
 // Rute untuk login pengguna
 app.post('/api/login', async (req, res) => {
@@ -114,10 +115,52 @@ app.post('/api/profile', async (req, res) => {
     }
 });
 
+//API untuk update user
+app.put('/api/users/:id', async (req, res) => {
+    const { id } = req.params;
+    const { nama, alamat, phone_number, npm, vehicle_license } = req.body;
+
+    try {
+        // Cek apakah pengguna dengan ID yang diberikan ada di database
+        const user = await pool.query('SELECT * FROM users WHERE user_id = $1', [id]);
+        if (user.rows.length === 0) {
+            return res.status(404).json({ message: 'Pengguna tidak ditemukan' });
+        }
+
+        // Update data pengguna
+        const result = await pool.query(
+            'UPDATE users SET nama = $1, alamat = $2, phone_number = $3, npm = $4, vehicle_license = $5 WHERE user_id = $6 RETURNING *',
+            [nama, alamat, phone_number, npm, vehicle_license, id]
+        );
+
+        res.json({ message: 'Data pengguna berhasil diperbarui', user: result.rows[0] });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ message: 'Terjadi kesalahan saat memperbarui data pengguna' });
+    }
+});
+
+//Untuk Menambahkan data sepeda
+app.post('/api/bikes', async (req, res) => {
+    try {
+        const { specunId, dropLocation, userId, fuel, status } = req.body;
+
+        // Masukkan data sepeda ke dalam tabel "bikes"
+        const result = await pool.query(
+            'INSERT INTO bikes (specun_id, drop_location, user_id, fuel, status) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+            [specunId, dropLocation, userId, fuel, status]
+        );
+
+        // Mengirimkan respons berhasil dengan data sepeda yang baru ditambahkan
+        res.status(201).json({ message: 'Data sepeda berhasil ditambahkan', bike: result.rows[0] });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ message: 'Terjadi kesalahan saat menambahkan data sepeda' });
+    }
+});
 
 
 // Memulai server
 app.listen(port, () => {
     console.log(`Server berjalan di http://localhost:${port}`);
 });
-

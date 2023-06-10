@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Drop Point</title>
+</head>
+
+<body>
+    <form id="dropPointForm">
+        <label for="operation">Pilih Operasi:</label>
+        <select id="operation" name="operation">
+            <option value="add">Tambah Drop Point</option>
+            <option value="update">Update Drop Point</option>
+            <option value="delete">Hapus Drop Point</option>
+        </select>
+        <br>
+
+        <div id="locationInput">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+            <br>
+        </div>
+
+        <div id="chargerPointInput">
+            <label for="chargerPoint">Charger Point:</label>
+            <input type="checkbox" id="chargerPoint" name="chargerPoint" value="1">
+            <br>
+        </div>
+
+        <div id="parkPointInput">
+            <label for="parkPoint">Park Point:</label>
+            <input type="checkbox" id="parkPoint" name="parkPoint" value="1">
+            <br>
+        </div>
+
+        <div id="busStopInput">
+            <label for="busStop">Bus Stop:</label>
+            <input type="checkbox" id="busStop" name="busStop" value="1">
+            <br>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script src="../Backend/DropControl.js"></script>
+</body>
+
+</html>

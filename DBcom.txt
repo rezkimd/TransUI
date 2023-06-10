@@ -1,51 +1,67 @@
-CREATE TYPE ROLE AS ENUM('PENGGUNA','PARTNER','REGULER');
-CREATE TYPE STATUS AS ENUM('Diproses','Selesai','Batal','Belum Bayar');
-CREATE TYPE avail AS ENUM('Used','Available','Charging','Need Services');
+Manual Connection to Database :
+PGHOST='ep-empty-recipe-891243-pooler.ap-southeast-1.aws.neon.tech'
+PGDATABASE='TransUI'
+PGUSER='rezkimuhammad60'
+PGPASSWORD='3tbwJKEXYjo1'
+ENDPOINT_ID='ep-empty-recipe-891243-pooler'
+
+
+CREATE TYPE ROLE AS ENUM('REGULER','PARTNER','MAHASISWA');
+CREATE TYPE STATUS AS ENUM('Menunggu','Selesai','Dibatalkan');
+CREATE TYPE avail AS ENUM('Used','Available','Charging','Broken');
 CREATE TYPE facility AS ENUM('Charge Point','Park','Bus Stop');
 
-
-CREATE TABLE user(
-    USER_ID PRIMARY KEY SERIAL,
-    Password TEXT NOT NULL,
-    Email TEXT NOT NULL UNIQUE,
-    NAME VARCHAR(20) DEFAULT NULL
-    Username VARCHAR(20) NOT NULL UNIQUE,
-    PARTNER_ID CHAR(10) DEFAULT NULL,
-    NPM CHAR(10) DEFAULT NULL,
-    ADDRESS TEXT DEFAULT NULL,
-    ROLE ROLE NOT NULL
+CREATE TABLE "user" (
+    "USER_ID" VARCHAR(10) PRIMARY KEY,
+    "Password" TEXT NOT NULL,
+    "Email" TEXT NOT NULL UNIQUE,
+    "NAME" VARCHAR(20) DEFAULT NULL,
+    "Username" VARCHAR(20) NOT NULL UNIQUE,
+    "PARTNER_ID" CHAR(10) DEFAULT NULL,
+    "NPM" CHAR(10) DEFAULT NULL,
+    "ADDRESS" TEXT DEFAULT NULL,
+    "Balance" BIGINT DEFAULT NULL,
+    "ROLE" VARCHAR(20) NOT NULL
 );
 
-CREATE TABLE wallet(
-    WALLET_ID PRIMARY KEY,
-    BALANCE BIG INT NOT NULL
+CREATE TABLE "Partner" (
+    "PARTNER_ID" VARCHAR(10) PRIMARY KEY,
+    "Nama" VARCHAR(20) NOT NULL,
+    "LICENSE" CHAR(12) NOT NULL
 );
 
-CREATE TABLE partner(
-    PARTNER_ID PRIMARY KEY,
-    LICENSE CHAR(12) NOT NULL
+CREATE TABLE "payment_history" (
+    "TRANS_ID" VARCHAR(10) PRIMARY KEY,
+    "PAYMENT" BIGINT NOT NULL,
+    "STATUS" status NOT NULL,
+    "DATE" DATE NOT NULL DEFAULT NOW(),
+    "TIME" TIME NOT NULL DEFAULT NOW(),
+    "ORDER_ID" SERIAL UNIQUE
 );
 
-CREATE TABLE history(
-    TRANS_ID PRIMARY KEY,
-    PAYMENT BIGINT,
-    STATUS STATUS NOT NULL,
-    DATE DATE NOT NULL DEFAULT NOW(),
-    TIME TIME NOT NULL DEFAULT NOW(),
-    ORDER_ID CHAR(16) UNIQUE
+CREATE TABLE "ride_history" (
+    "username" VARCHAR(20) PRIMARY KEY,
+    "Spekun_ID" VARCHAR(20) NOT NULL,
+    "DATE" DATE NOT NULL,
+    "From" VARCHAR(20) NOT NULL,
+    "Destination" VARCHAR(20) NOT NULL,
+    "Duration" TIMESTAMP NOT NULL
 );
 
-CREATE TABLE spekun(
-    Spekun_ID PRIMARY KEY,
-    User VARCHAR(20),
-    Drop_loc VARCHAR(20),
-    Fuel INT NOT NULL,
-    Status avail NOT NULL
+CREATE TABLE "spekun" (
+    "Spekun_ID" VARCHAR(20) PRIMARY KEY,
+    "Rider" VARCHAR(20),
+    "Drop_loc" VARCHAR(20),
+    "Fuel" INT NOT NULL,
+    "Status" avail NOT NULL
 );
 
-CREATE TABLE drop_point(
-    Location VARCHAR(20) NOT NULL,
-    Fasilitas facility
+CREATE TABLE "drop_point" (
+    "Drop_ID" SERIAL PRIMARY KEY, 
+    "Location" VARCHAR(20) NOT NULL,
+    "Charger_point" Boolean NOT NULL,
+    "Park_point" Boolean NOT NULL,
+    "Bus_Stop" Boolean NOT NUll
 );
 
 CREATE TABLE Sched(
