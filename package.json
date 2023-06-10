@@ -24,6 +24,8 @@
     "express-session": "^1.17.3",
     "jquery": "^3.7.0",
     "nodemon": "^2.0.22",
+    "parcel-bundler": "^1.12.5",
+    "path": "^0.12.7",
     "pg": "^8.11.0"
   }
 }

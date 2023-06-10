@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const bcrypt = require('bcrypt');
 const { Pool } = require('pg');
+const path = require('path')
 
 const app = express();
 const port = 3000;
@@ -17,7 +18,7 @@ const pool = new Pool({
 // Middleware untuk menguraikan body permintaan
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use(express.static('public'));
 // Middleware untuk session
 app.use(session({
     secret: 'secret-key',
@@ -157,6 +158,27 @@ app.post('/api/bikes', async (req, res) => {
     }
 });
 
+
+//Router 1: Menampilkan landing page (login/register)
+app.get('/', (req, res) => {
+    temp = req.session;
+    if (temp.username && temp.visits) { //jika user terdaftar maka akan masuk ke halaman admin
+        return res.redirect('../index.html');
+    } else { //login / register page
+        temp.visits = 1;
+        res.sendFile(path.join(__dirname, '../index.html'));
+    }
+});
+
+app.get('/', (req, res) => {
+    temp = req.session;
+    if (temp.username && temp.visits) { //jika user terdaftar maka akan masuk ke halaman admin
+        return res.redirect('../index.html');
+    } else { //login / register page
+        temp.visits = 1;
+        res.sendFile(path.join(__dirname, '../index.html'));
+    }
+});
 
 // Memulai server
 app.listen(port, () => {
