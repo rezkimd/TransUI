@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <title>TransUI</title>
+    <meta property="og:title" content="KRL - exported project" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <style>
+      #map{
+        top: 100px;
+        width: 400px;
+        height: 245px;
+        z-index: 0;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  </head>
+  <body>
+    <div>
+      <link href="./css/krl.css" rel="stylesheet" />
+
+      <div class="krl-container">
+        <div class="krl-i-phone-plus8">
+          <div class="krl-map">
+            <!--img
+              src="public/external/e22e2ab4a66a4ca194f11b3e0fe32c9611201-h7e-1000h.png"
+              alt="E22E2AB4A66A4CA194F11B3E0FE32C9611201"
+              class="krl-e22e2ab4a66a4ca194f11b3e0fe32c961"
+            /-->
+            <div id="map">
+            </div>
+          </div>
+          <script>
+            const map = L.map('map').setView([-6.3610,106.8319], 15);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+                maxZoom: 18,
+            }).addTo(map);
+
+            L.marker([-6.3610,106.8319],{
+              title: "Stasiun Universitas Indonesia",
+            }).addTo(map)
+                .bindPopup('Stasiun Universitas Indonesia.');
+                
+            L.marker([-6.36909,106.83206],{
+              title: "Stasiun Pondok Cina",
+            }).addTo(map)
+                .bindPopup('Stasiun Pondok Cina.');
+          </script>
+          <img
+            src="public/external/rectangle41131201-iflb-200h.png"
+            alt="Rectangle41131201"
+            class="krl-rectangle4113"
+          />
+          <img
+            src="public/external/rectangle41141201-vc0j-500w.png"
+            alt="Rectangle41141201"
+            class="krl-rectangle4114"
+          />
+         
+
+          <div class="krl-container1">
+            <div class="krl-group8">
+              <span class="krl-text"><span>TransUI</span></span>
+              <img
+                src="public/external/vector1201-ql8d.svg"
+                alt="Vector1201"
+                class="krl-vector"
+              />
+            </div>
+            <img
+              src="public/external/ellipse1211201-whxd-200h.png"
+              alt="Ellipse1211201"
+              class="krl-ellipse121"
+            />
+          </div>
+          <div class="krl-container2">
+            <span class="krl-text2">
+              <span>KRL</span>
+              <br />
+              <br />
+            </span>
+            <div class="krl-group4">
+              <div class="krl-group41">
+                <img
+                  src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/c1fac9eb-1b2e-459c-9996-ba35f2471df3/a30e98f8-49ee-4429-a377-61280e72caec?org_if_sml=1733"
+                  alt="Ellipse1161201"
+                  class="krl-ellipse116"
+                />
+                <img
+                  src="public/external/orders1201-don.svg"
+                  alt="Orders1201"
+                  class="krl-orders"
+                />
+              </div>
+            </div>
+          </div>
+          <img
+            src="public/external/vector1202-eov.svg"
+            alt="Vector1202"
+            class="krl-vector1"
+            onclick="window.location.href='home.html'"
+          />
+        </div>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Train</th>
+          <th>Departure</th>
+          <th>Arrival</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Train 1</td>
+          <td>10:00 AM</td>
+          <td>11:30 AM</td>
+        </tr>
+        <tr>
+          <td>Train 2</td>
+          <td>12:00 PM</td>
+          <td>1:30 PM</td>
+        </tr>
+        <!-- Add more rows for other trains -->
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <title>TransUI</title>
+    <meta property="og:title" content="register - exported project" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div>
+      <link href="./css/register.css" rel="stylesheet" />
+      <link href="./css/login.css" rel="stylesheet" />
+
+      <div class="register-container">
+        <div class="register-i-phone-plus3">
+          <span class="register-text" onclick="redirectIndex()"><span>TransUI</span></span>
+          <script>
+            function redirectIndex() {
+              window.location.href = "index.html";
+            }
+          </script>
+          <img
+            alt="Vector1315"
+            src="public/external/vector7666-m4o.svg"
+            class="register-vector"
+          />
+          <div class="page-sec">
+            <span class="page-text02"><span>Login</span></span>
+            <div class="page-sec1">
+              <div class="page-sec2">
+                <span class="page-text04"><span>Email</span></span>
+                <input type="email" id="email" name="email" class="page-sec3" placeholder="example@email.com" />
+              </div>
+              <div class="page-sec4">
+                <div class="page-sec5">
+                  <span class="page-text08"><span>Password</span></span>
+                  <span class="page-text10" onclick="window.location.href='forgot1.html'">Forgot password?</span>
+                </div>
+                <input type="password" class="page-sec6" placeholder="************" />                
+              </div>
+              <div class="page-sec7 button" onclick="redirectHome()">
+                <span class="page-text14"><span>Login</span></span>
+              </div>
+              <script>
+                function redirectHome() {
+                  window.location.href = "home.html";
+                }
+              </script>
+              <span class="page-text16">
+                <span class="page-text17">Don’t have account?</span>
+                <span onclick="redirectSignUp()" class="textCreateNew">Create new account</span>
+
+                <script>
+                  function redirectSignUp() {
+                    window.location.href = "register.html";
+                  }
+                </script>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

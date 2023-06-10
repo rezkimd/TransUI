@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <title>TransUI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.2.2/ol.css">
+    <script src="https://cdn.jsdelivr.net/npm/ol@v7.2.2/dist/ol.js"></script>
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+      #map{
+        top: 100px;
+        width: 420px;
+        height: 496px;
+        z-index: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <link href="./css/home.css" rel="stylesheet" />
+
+      <div class="home-container">
+        <div class="home-i-phone-plus6" >
+          <!--img
+            src="public/external/e22e2ab4a66a4ca194f11b3e0fe32c9619860-znp8-500w.png"
+            alt="E22E2AB4A66A4CA194F11B3E0FE32C9619860"
+            class="home-e22e2ab4a66a4ca194f11b3e0fe32c961"
+          /-->
+          <div class="home-e22e2ab4a66a4ca194f11b3e0fe32c961" id="map" >
+          </div>
+
+          <!--script>
+            var map = L.map('map').setView([-6.1753924, 106.8271528], 13);
+
+            L.tileLayer('https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}.png?key=JRpDU0gUTKUAHiz5aPEV', {
+              attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+            })
+          </script-->
+          <script>
+            const map = L.map('map').setView([-6.3604,106.8270], 15);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+                maxZoom: 18,
+            }).addTo(map);
+          </script>
+          <img
+            src="public/external/rectangle41139860-hxpe-200h.png"
+            alt="Rectangle41139860"
+            class="home-rectangle4113"
+          />
+          <img
+            src="public/external/rectangle41149861-r53p-200h.png"
+            alt="Rectangle41149861"
+            class="home-rectangle4114"
+          />
+          <div class="home-group8" onclick="redirectHome()">
+            <span class="home-text"><span>TransUI</span></span>
+            <img
+              src="public/external/vector9860-zbad.svg"
+              alt="Vector9860"
+              class="home-vector"
+            />
+          </div>
+          <script>
+            function redirectHome() {
+              window.location.href = "home.html";
+            }
+          </script>
+          <img
+            src="public/external/ellipse1219861-j63b-200h.png"
+            alt="Ellipse1219861"
+            class="home-ellipse121"
+            onclick="redirectProfile()"
+          />
+          <script>
+            function redirectProfile() {
+              window.location.href = "profile.html";
+            }
+          </script>
+
+          <div class="home-icons">
+            <div class="home-group7">
+              <span class="home-text02"><span>Sepeda</span></span>
+              <div class="home-group6">
+                <img
+                  src="public/external/ellipse1179814-5snq-200h.png"
+                  alt="Ellipse1179814"
+                  class="home-ellipse117"
+                />
+                <div class="home-rating-filled">
+                  <img
+                    src="public/external/ratingi981-h846.svg"
+                    alt="RatingI981"
+                    class="home-rating"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="home-group12">
+              <span class="home-text04"><span>Ojek</span></span>
+              <div class="home-group61">
+                <img
+                  src="public/external/ellipse1171021-l63o-200h.png"
+                  alt="Ellipse1171021"
+                  class="home-ellipse1171"
+                />
+                <div class="home-rating-filled1">
+                  <img
+                    src="public/external/ratingi102-hnp9h.svg"
+                    alt="RatingI102"
+                    class="home-rating1"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="home-group5" onclick="window.location.href='bikun.html'">
+              <span class="home-text06"><span>Bikun</span></span>
+              <div class="home-group4">
+                <img
+                  src="public/external/ellipse1169814-zxs-200h.png"
+                  alt="Ellipse1169814"
+                  class="home-ellipse116"
+                />
+                <img
+                  src="public/external/orders9814-0p1.svg"
+                  alt="Orders9814"
+                  class="home-orders"
+                />
+              </div>
+            </div>
+            <div class="home-group11" onclick="window.location.href='krl.html'">
+              <span class="home-text08"><span>KRL</span></span>
+              <div class="home-group10">
+                <img
+                  src="public/external/ellipse1199814-ylq-200h.png"
+                  alt="Ellipse1199814"
+                  class="home-ellipse119"
+                />
+                <div class="home-cart">
+                  <img
+                    src="public/external/carti981-mcpe-200h.png"
+                    alt="CartI981"
+                    class="home-cart1"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
