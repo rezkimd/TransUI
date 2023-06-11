@@ -13,6 +13,10 @@ router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../index.html'));
 });
 
+router.get('/profile', (req, res) => {
+    res.sendFile(path.join(__dirname, '../profile.html'));
+});
+
 router.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname, '../register.html'));
 });
@@ -35,6 +39,30 @@ router.get('/krl', (req, res) => {
 
 router.get('/editprofile', (req, res) => {
     res.sendFile(path.join(__dirname, '../edit-profile.html'));
+});
+
+router.get('/crudbikun', (req, res) => {
+    res.sendFile(path.join(__dirname, '../crud-bikun.html'));
+});
+
+router.get('/cruddatabase', (req, res) => {
+    res.sendFile(path.join(__dirname, '../crud-database.html'));
+});
+
+router.get('/cruddroploc', (req, res) => {
+    res.sendFile(path.join(__dirname, '../crud-droploc.html'));
+});
+
+router.get('/crudkrl', (req, res) => {
+    res.sendFile(path.join(__dirname, '../crud-krl.html'));
+});
+
+router.get('/crudsepeda', (req, res) => {
+    res.sendFile(path.join(__dirname, '../crud-sepeda.html'));
+});
+
+router.get('/ADMIN', (req, res) => {
+    res.sendFile(path.join(__dirname, '../admin.html'));
 });
 
 module.exports = router;

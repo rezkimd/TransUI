@@ -51,20 +51,6 @@ app.use(session({
 //     }
 // }
 
-app.get('/profile', (req, res) => {
-    /// Periksa apakah sesi pengguna telah diinisialisasi dan memiliki properti 'user'
-    if (req.session.user && req.session.user.username) {
-        // Ambil nilai username dan role dari sesi
-        const { username, role } = req.session.user;
-
-        // Render file profile.ejs dan kirimkan data username dan role sebagai locals
-        res.render('profile', { username, role });
-    } else {
-        // Jika tidak ada sesi pengguna atau properti 'username' tidak ada, kirimkan respons sesuai kebutuhan Anda
-        res.status(401).json({ message: 'Akses ditolak' });
-    }
-});
-
 // Rute untuk registrasi pengguna
 app.post('/api/register', async (req, res) => {
     try {
