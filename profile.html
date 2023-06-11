@@ -161,15 +161,21 @@
         <img src="public/external/rectangle239421-mbz-200h.png" alt="Rectangle239421" class="profile-rectangle23"
           onclick="window.location.href = '/topup';" />
         <span class="profile-text08" onclick="window.location.href = '/topup';"><span>TransUI Cash</span></span>
-        <span class="profile-text10" onclick="window.location.href = '/topup';"><span>Rp0,00.</span></span>
+        <span class="profile-text10" onclick="window.location.href = '/topup';"><span id="balance">Rp0,00</span></span>
         <div class="profile-nav">
+
           <img src="public/external/ellipse1209736-q7w-200h.png" alt="Ellipse1209736" class="profile-ellipse120" />
           <span class="profile-text12">
-            <span>Aliefya Fikri Ihsani</span>
+            <span id="username">
+              <%= username %>
+            </span></span>
           </span>
-          <span class="profile-text14"><span>Mahasiswa</span></span>
+          <span class="profile-text14"><span id="role">
+              <%= role %>
+            </span></span>
         </div>
-        <div class="logoutgroup" onclick="window.location.href ='/'">
+
+        <div class="logoutgroup" onclick="LogoutFunc()">
           <span class="profile-text06"><span>Log Out</span></span>
           <img src="public/external/logoutfill1wght700grad25opsz2421181-gmlo.svg"
             alt="logoutFILL1wght700GRAD25opsz2421181" class="profile-logout-fill1wght700grad25opsz242" />
@@ -186,6 +192,32 @@
       </div>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./Backend/DBscript.js"></script>
+  <script>
+    function LogoutFunc() {
+      // Kirim permintaan HTTP GET ke API /api/logout
+      fetch('/api/logout', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log("Terima kasih telah menggunakan layanan kami");
+          // Misalnya, arahkan pengguna ke halaman login atau refresh halaman saat ini
+          window.location.href = '/'; // Ganti dengan URL yang sesuai
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          console.log("Terjadi kesalahan dalam memutuskan koneksi");
+          // Handle error saat logout di sini
+          // Misalnya, tampilkan pesan kesalahan kepada pengguna
+        });
+    }
+
+  </script>
 </body>
 
 </html>

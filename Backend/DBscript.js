@@ -12,9 +12,13 @@ const port = 3000;
 app.use('/css', express.static(path.join(__dirname, '../css')));
 app.use(express.static('public'));
 app.use('/public', express.static(path.join(__dirname, '../public')));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 //Fungsi Import
 const { generateUserID } = require('./userController');
+const topUpRouter = require('./top-up');
+
 
 // Konfigurasi koneksi database
 const pool = new Pool({
@@ -27,14 +31,39 @@ const pool = new Pool({
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
+app.use('/', router);
+
 // Middleware untuk session
 app.use(session({
     secret: 'secret-key',
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
+    cookie: { secure: true, maxAge: 3600000 }
 }));
 
-app.use('/', router);
+// function requireAuth(req, res, next) {
+//     if (req.session.userId) {
+//         // Lanjutkan jika pengguna telah terotentikasi
+//         next();
+//     } else {
+//         // Kirim respons jika pengguna tidak terotentikasi
+//         res.status(401).json({ message: 'Unauthorized' });
+//     }
+// }
+
+app.get('/profile', (req, res) => {
+    /// Periksa apakah sesi pengguna telah diinisialisasi dan memiliki properti 'user'
+    if (req.session.user && req.session.user.username) {
+        // Ambil nilai username dan role dari sesi
+        const { username, role } = req.session.user;
+
+        // Render file profile.ejs dan kirimkan data username dan role sebagai locals
+        res.render('profile', { username, role });
+    } else {
+        // Jika tidak ada sesi pengguna atau properti 'username' tidak ada, kirimkan respons sesuai kebutuhan Anda
+        res.status(401).json({ message: 'Akses ditolak' });
+    }
+});
 
 // Rute untuk registrasi pengguna
 app.post('/api/register', async (req, res) => {
@@ -99,11 +128,34 @@ app.post('/api/login', async (req, res) => {
 
         // Mengirimkan respons berhasil
         res.status(200).json({ message: 'Login berhasil', user: userDB });
-
+        console.log(req.session.user);
     } catch (error) {
         console.error('Error:', error);
         res.status(500).json({ message: 'Terjadi kesalahan saat melakukan login' });
     }
+});
+
+//Rute untuk menampilkan profile pengguna
+app.get('/api/user', (req, res) => {
+    const userId = req.session.userId;
+
+    // Ambil informasi pengguna dari database berdasarkan userId
+    const getUserQuery = 'SELECT * FROM user_table WHERE id = $1';
+    pool.query(getUserQuery, [userId], (error, result) => {
+        if (error) {
+            console.error('Error:', error);
+            res.status(500).json({ message: 'Terjadi kesalahan saat mengambil informasi pengguna' });
+        } else {
+            const userDB = result.rows[0];
+
+            if (userDB) {
+                // Kirim informasi pengguna yang sedang login sebagai respons
+                res.status(200).json({ username: userDB.username, role: userDB.role });
+            } else {
+                res.status(404).json({ message: 'Pengguna tidak ditemukan' });
+            }
+        }
+    });
 });
 
 //Rute untuk menambahkan data profile
@@ -125,6 +177,33 @@ app.post('/api/profile', async (req, res) => {
     } catch (error) {
         console.error('Error:', error);
         res.status(500).json({ message: 'Terjadi kesalahan saat menyimpan data' });
+    }
+});
+
+app.post('/api/topup', async (req, res) => {
+    const userId = req.session.userId;
+    const { amount } = req.body;
+
+    try {
+        // Perbarui saldo pengguna di dalam tabel user_table
+        const updateQuery = 'UPDATE user_table SET balance = balance + $1 WHERE id = $2';
+        await pool.query(updateQuery, [amount, userId]);
+
+        // Ambil data pengguna terbaru setelah perubahan saldo
+        const getUserQuery = 'SELECT * FROM user_table WHERE id = $1';
+        const result = await pool.query(getUserQuery, [userId]);
+        const userDB = result.rows[0];
+
+        if (userDB) {
+            // Kirim respons berhasil dengan data saldo terbaru
+            res.status(200).json({ message: 'Top-up berhasil', balance: userDB.balance });
+        } else {
+            // Kirim respons gagal jika pengguna tidak ditemukan
+            res.status(404).json({ message: 'Pengguna tidak ditemukan' });
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ message: 'Terjadi kesalahan saat memperbarui saldo pengguna' });
     }
 });
 
@@ -172,7 +251,19 @@ app.post('/api/bikes', async (req, res) => {
     }
 });
 
+// Rute untuk logout pengguna
+app.get('/api/logout', (req, res) => {
+    // Hapus data pengguna dari session
+    req.session.destroy((err) => {
+        if (err) {
+            console.error('Error:', err);
+            return res.status(500).json({ message: 'Terjadi kesalahan saat logout' });
+        }
 
+        // Mengirimkan respons berhasil
+        res.status(200).json({ message: 'Logout berhasil' });
+    });
+});
 
 
 // Memulai server
@@ -180,4 +271,4 @@ app.listen(port, () => {
     console.log(`Server berjalan di http://localhost:${port}`);
 });
 
-module.exports = app
+module.exports = app, pool, router;

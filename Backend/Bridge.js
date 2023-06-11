@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+
 // Konfigurasi routing untuk URI /login
 router.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, '../login.html'));
@@ -18,10 +19,6 @@ router.get('/register', (req, res) => {
 
 router.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname, '../home.html'));
-});
-
-router.get('/profile', (req, res) => {
-    res.sendFile(path.join(__dirname, '../profile.html'));
 });
 
 router.get('/topup', (req, res) => {

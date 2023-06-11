@@ -64,6 +64,21 @@ CREATE TABLE "drop_point" (
     "Bus_Stop" Boolean NOT NUll
 );
 
-CREATE TABLE Sched(
-
+CREATE TABLE Sched_bikun(
+    "Plat_nomor" CHAR(4),
+    "Waktu_berangkat" TEXT,
+    "Jalur" TEXT
 );
+
+CREATE TABLE Sched_krl(
+    "Kode_kereta" Char(4),
+    "Jam_tiba" TEXT,
+    "Stamformasi" INT,
+    "Tujuan" TEXT
+);
+
+psql -h ep-empty-recipe-891243-pooler.ap-southeast-1.aws.neon.tech -U rezkimuhammad60 -d TransUI -c "\copy Sched_bikun FROM 'C:\Users\rezki\Downloads\jadwal_bis.csv' with (format csv,header true, delimiter ',');"
+
+\copy Sched_bikun FROM 'C:\Users\rezki\Downloads\jadwal_bis.csv' DELIMITER ',' CSV HEADER;
+
+\copy Sched_krl FROM 'C:\Users\rezki\Downloads\jadwal_kereta.csv' DELIMITER ',' CSV HEADER;

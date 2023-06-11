@@ -1,52 +1,31 @@
-document.getElementById('confirmBtn').addEventListener('click', function () {
-    // Mengambil nilai jumlah top-up dari input
-    var amount = document.getElementById('amount').value;
+const express = require('express');
+const router = express.Router();
+const path = require('path');
+const pool = require('./DBscript');
 
-    // Mengirim permintaan ke server
-    fetch('/api/top_up', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ amount: amount })
-    })
-        .then(response => response.json())
-        .then(result => {
-            // Menampilkan pesan atau melakukan tindakan lain sesuai respons dari server
-            console.log(result);
-            // Lakukan tindakan setelah saldo berhasil diperbarui
-            // Contoh: tampilkan pesan sukses, perbarui tampilan saldo, dll.
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            // Menampilkan pesan atau melakukan tindakan lain jika terjadi kesalahan
-        });
-});
+// router.post('/', requireAuth, async (req, res) => {
+//     const userId = req.session.userId;
+//     const { amount } = req.body;
 
-function topUp() {
-    var amount = document.getElementById('display').innerHTML;
+//     try {
+//         // Perbarui saldo pengguna di dalam tabel user_table
+//         const updateQuery = 'UPDATE user_table SET balance = balance + $1 WHERE id = $2';
+//         await pool.query(updateQuery, [amount, userId]);
 
-    // Mengirim permintaan ke server
-    fetch('/api/top_up', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ amount: amount })
-    })
-        .then(response => response.json())
-        .then(result => {
-            // Menampilkan pesan atau melakukan tindakan lain sesuai respons dari server
-            console.log(result);
-            // Lakukan tindakan setelah saldo berhasil diperbarui
-            // Contoh: tampilkan pesan sukses, perbarui tampilan saldo, dll.
+//         // Ambil data pengguna terbaru setelah perubahan saldo
+//         const getUserQuery = 'SELECT * FROM user_table WHERE id = $1';
+//         const result = await pool.query(getUserQuery, [userId]);
+//         const userDB = result.rows[0];
 
-            // Arahkan halaman ke profile.html
-            window.location.href = 'profile.html';
-        })
-        .catch(error => {
-            console.error('Proses Top up terganggu', error);
-            window.location.href = 'profile.html';
-            // Menampilkan pesan atau melakukan tindakan lain jika terjadi kesalahan
-        });
-}
+//         if (userDB) {
+//             // Kirim respons berhasil dengan data saldo terbaru
+//             res.status(200).json({ message: 'Top-up berhasil', balance: user.balance });
+//         } else {
+//             // Kirim respons gagal jika pengguna tidak ditemukan
+//             res.status(404).json({ message: 'Pengguna tidak ditemukan' });
+//         }
+//     } catch (error) {
+//         console.error('Error:', error);
+//         res.status(500).json({ message: 'Terjadi kesalahan saat memperbarui saldo pengguna' });
+//     }
+// });
